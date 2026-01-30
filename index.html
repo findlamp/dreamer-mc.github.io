@@ -117,7 +117,7 @@
             </div>
             
             <p class="text-lg text-gray-500 max-w-xl mx-auto leading-relaxed">
-                A deep dive into the architecture behind our infinite video engine, achieving coherent open-world simulation at 20 FPS with sub-50ms latency and 256 frame context.
+                A deep dive into the architecture behind our infinite video engine, achieving coherent open-world simulation at 20 FPS with sub-50ms latency and 256 frame context on single H200.
             </p>
         </div>
     </header>
@@ -347,7 +347,7 @@
 
             <h2>Inference Optimization</h2>
             <p class="lead text-lg text-gray-600 font-normal">
-                To achieve true real-time performance without compromising on generation quality, we moved beyond standard PyTorch implementations, optimizing the inference pipeline at the kernel level.
+                Achieving true real-time generation at high quality required moving beyond standard PyTorch implementations, with a heavily optimized inference pipeline designed for long-context workloads on a single H200 GPU.
             </p>
 
             <figure class="not-prose my-12">
@@ -402,7 +402,53 @@
                     <strong>Domain Specificity & Scale:</strong> Currently, the model is trained exclusively on Minecraft data. It is a "specialist" model with a relatively modest parameter count. Our ultimate vision is to scale up both the model size and the training data. Future work will involve expanding training to include other video games and, eventually, real-world video data, moving closer to a General World Model capable of simulating diverse physical laws and environments.
                 </li> 
             </ul>
+            <div class="mt-20 border-t border-gray-200 pt-10 not-prose">
+                <h2 class="text-xl font-bold text-gray-900 mb-5">Citations</h2>
+                
+                <div class="space-y-3">
+                    
+                    <div class="bg-gray-50 rounded-lg border border-gray-200 p-4">
+                        <div class="overflow-x-auto">
+<pre class="text-xs font-mono text-gray-600">@article{hafner2025dreamerv4,
+    title   = {Dreamer-MC: A Real-Time Autoregressive World Model for Infinite Video Generation},
+    author  = {Ming Gao, Yan Yan, ShengQu Xi, Yu Duan, ShengQian Li, Feng Wang},
+    year    = {2026},
+    url     = {https://findlamp.github.io/dreamer-mc.github.io/}
+}</pre>
+                        </div>
+                    </div>
+            </div>
+            <div class="mt-20 border-t border-gray-200 pt-10 not-prose">
+                <h2 class="text-xl font-bold text-gray-900 mb-5">References</h2>
+                
+                <div class="space-y-3">
+                    
+                    <div class="bg-gray-50 rounded-lg border border-gray-200 p-4">
+                        <div class="overflow-x-auto">
+<pre class="text-xs font-mono text-gray-600">@article{hafner2025dreamerv4,
+    title   = {Training Agents Inside of Scalable World Models},
+    author  = {Hafner Danijar, Yan Wilson, Lillicrap Timothy},
+    journal = {arXiv preprint arXiv:2509.24527},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2509.24527}
+}</pre>
+                        </div>
+                    </div>
 
+                    <div class="bg-gray-50 rounded-lg border border-gray-200 p-4">
+                        <div class="overflow-x-auto">
+<pre class="text-xs font-mono text-gray-600">@article{chen2025maetok,
+    title   = {Masked Autoencoders Are Effective Tokenizers for Diffusion Models},
+    author  = {Chen Hao, Zhang Michael, Li Yuxin},
+    journal = {International Conference on Machine Learning (ICML)},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2502.03444}
+}</pre>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </article>
         
         <div class="mt-16 pt-8 border-t border-gray-100 flex items-center gap-4">
