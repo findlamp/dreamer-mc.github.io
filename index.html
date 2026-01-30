@@ -112,6 +112,12 @@
                 <div class="mt-2 text-sm text-gray-500">
                     Create AI
                 </div>
+                <div class="mt-5 flex justify-center">
+                    <a href="https://huggingface.co/IamCreateAI/Dreamerv4-MC" target="_blank" class="inline-flex items-center gap-2 px-5 py-2 bg-gray-900 hover:bg-gray-800 text-white text-sm font-medium rounded-full transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5">
+                        <span class="text-base">🤗</span>
+                        <span>Try Dreamer-MC</span>
+                    </a>
+                </div>
             </div>
                 
             </div>
@@ -364,7 +370,7 @@
                 Standard sliding-window implementations often rely on shifting memory (e.g., <code>torch.roll</code> or <code>memmove</code>) to discard old frames and make room for new ones. This data movement incurs a significant \( O(N) \) overhead at every step.
             </p>
             <p>
-                "We address this by employing a Ring Buffer KV Cache. Instead of shifting data, we maintain a fixed-size buffer and advance a write pointer to overwrite the oldest frame. This reduces update complexity to O(1) and delivers a performance boost of over 30%. However, this introduces a new challenge: the physical position of a frame in the buffer no longer aligns with its logical temporal position, rendering standard Rotary Positional Embeddings (RoPE) ineffective."
+                We solve this using a Ring Buffer KV Cache. Instead of shifting data, we maintain a fixed-size buffer and simply advance a write pointer, overwriting the oldest frame with the newest one (\( O(1) \) complexity). However, this introduces a new challenge: the physical position of a frame in the buffer no longer matches its logical temporal position, breaking standard Rotary Positional Embeddings (RoPE).
             </p>
             <p>To address this, we implement <strong>RoPE Re-indexing</strong>:</p>
             <ul>
